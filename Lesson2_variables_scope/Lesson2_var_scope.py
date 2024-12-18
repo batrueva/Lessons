@@ -1,7 +1,8 @@
 '''
 Конвертация типов данных . Функции type(), int(), float(), str()
 int, float --> str - можно
-str --> int, float - нельзя
+str --> int, float - нельзя`
+явная / неявная (typecasting)
 '''
 # game_count = 21
 # print(type(game_count))
@@ -66,19 +67,41 @@ str --> int, float - нельзя
 #         print(item, end=' ')
 # value([1,2,3,4])  
 
-# file — файлоподобный объект (поток).
+# # file — файлоподобный объект (поток).
 # file = open('print.txt','a+')
 # def value(items):
 #     for item in items:
 #         print(item, file=file, end=' ')
 #     file.close()  # закройте файл после работы с ним.
-
 # value([1,2,3,4,5,6,7,8,9,10])
 
-# sep — это может быть строка, которую необходимо вставлять между значениями, по умолчанию — пробел.
-# \n перенесет каждое слово на новую строку
+# # sep — это может быть строка, которую необходимо вставлять между значениями, по умолчанию — пробел.
+# # \n перенесет каждое слово на новую строку
 # print('Hello', 'World', 'Python', 'print()', sep='\n')
 
+## примеры вывода строки с переменными
+# a = 2
+# b = "PythonRU"
+# print(a,"— целое число, а",b,"— строка.")
+
+# # нужно указывать номера индексов
+# a = 2
+# b = "PythonRU"
+# print("{0} — целое число, а {1} — строка.".format(a,b))
+
+# a = 2
+# b = "PythonRU"
+# print("{1} — целое число, а {1} — строка.".format(a,b)) # что выведет?
+
+# # %d — это заполнитель для числовых или десятичных значений.
+# # %s — заполнитель для строк.
+# a = 2
+# b = "PythonRU"
+# print("%d — целое число, а %s — строка."%(a,b))
+
+# print("%s — целое число, а %s — строка."%(a,b)) # выполнится неявное пребразование типов
+
+# print("%d — целое число, а %d — строка."%(a,b)) # ошибка почему?
 '''
 Консольный ввод
 
@@ -224,25 +247,25 @@ https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues
 
 '''
 ## Двоичное представление чисел
-number = 5 # в двоичной форме 101
-print(f"number = {number:0b}")  # number = 101
+# number = 5 # в двоичной форме 101
+# print(f"number = {number:0b}")  # number = 101
 
-number = 0b101  # определяем число в двоичной форме
-print(f"number = {number:0b}")  # number = 101
-print(f"number = {number}")  # number = 5 - в десятичной системе
+# number = 0b101  # определяем число в двоичной форме
+# print(f"number = {number:0b}")  # number = 101
+# print(f"number = {number}")  # number = 5 - в десятичной системе
 
-number1 = 1 # в двоичной системе 0b1
-print(f"number = {number1:0b}")
-number2 = 2 # в двоичной системе 0b10
-print(f"number = {number2:0b}")
-number3 = 3 # в двоичной системе 0b11
-print(f"number = {number3:0b}")
-number4 = 4 # в двоичной системе 0b100
-print(f"number = {number4:0b}")
-number5 = 5 # в двоичной системе 0b101
-print(f"number = {number5:0b}")
-number6 = 6 # в двоичной системе 0b110
-print(f"number = {number6:0b}")
+# number1 = 1 # в двоичной системе 0b1
+# print(f"number = {number1:0b}")
+# number2 = 2 # в двоичной системе 0b10
+# print(f"number = {number2:0b}")
+# number3 = 3 # в двоичной системе 0b11
+# print(f"number = {number3:0b}")
+# number4 = 4 # в двоичной системе 0b100
+# print(f"number = {number4:0b}")
+# number5 = 5 # в двоичной системе 0b101
+# print(f"number = {number5:0b}")
+# number6 = 6 # в двоичной системе 0b110
+# print(f"number = {number6:0b}")
 
 ## Логические операции
 ## Логические операции выполняются над отдельными разрядами числа. В Python есть следующие логические операции:
@@ -294,6 +317,16 @@ print(f"number = {number6:0b}")
  
 # decrypt = encrypt ^ key    # Результатом будет исходное число 45
 # print(f"Расшифрованное число: {decrypt}")
+
+# # Также можно применять эту операцию для обмена значений чисел:
+# x = 9       #  1001
+# y = 5       #  0101
+# x = x ^ y
+# y = x ^ y
+# x = x ^ y 
+ 
+# print(f"x = {x}")       # x = 5
+# print(f"y = {y}")       # y = 9
 
 ## ~(инверсия). Выражение ~x фактически аналогично -(x+1). Например:
 # x = 5
