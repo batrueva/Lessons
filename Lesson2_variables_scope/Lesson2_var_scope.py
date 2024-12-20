@@ -1,7 +1,7 @@
 '''
 Конвертация типов данных . Функции type(), int(), float(), str()
 int, float --> str - можно
-str --> int, float - нельзя`
+str --> int, float - нельзя
 явная / неявная (typecasting)
 '''
 # game_count = 21
