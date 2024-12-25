@@ -16,9 +16,9 @@ if логическое_выражение:
 # print("End")
 
 # language = "english"
-# if language == "english1":
-#     print("Hello")
-#     print("End")
+if language == "english1":
+    print("Hello")
+    print("End")
 
 
 # language = "russian"
@@ -48,15 +48,15 @@ if логическое_выражение:
 #     print("Bay")
 #     print("World")
 
-# language = "german"
-# if language == "english":
-#     print("Hello")
-# elif language == "german":
-#     print("Hallo")
-# elif language == "french":
-#     print("Salut")
-# else:
-#     print("Bay")
+language = "german"
+if language == "english":
+    print("Hello")
+elif language == "german":
+    print("Hallo")
+elif language == "french":
+    print("Salut")
+else:
+    print("Bay")
 
 
 # language = "english"
@@ -88,12 +88,11 @@ else:
     if daytime == "morning":
         print("Доброе утро")
     else:
-        print("Добрый вечер")   
+        print("Добрый вечер")
 
 # # Заявление о пропуске
 a = 33
 b = 200
 
 if b > a:
-  pass
-
+    pass
