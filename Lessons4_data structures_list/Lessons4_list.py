@@ -222,7 +222,7 @@
 '''reverse()'''
 # people = ["Tom", "Bob", "Alice", "Sam", "Bill"]
 
-# people.sort()
+# people.sort(reverse = True)
 # people.reverse()
 # print(people)      # ["Tom", "Sam", "Bob", "Bill", "Alice"]
 
@@ -327,7 +327,7 @@
 # print(max(numbers))     # 21
 
 '''Копирование списков'''
-# shallow copy
+# shallow copy новый список не создается
 
 # people1 = ["Tom", "Bob", "Alice"]
 # people2 = people1
@@ -336,21 +336,27 @@
 # print(people1)   # ["Tom", "Bob", "Alice", "Sam"]
 # print(people2)   # ["Tom", "Bob", "Alice", "Sam"]
 
-# deep copy
+# deep copy создается новый объект
 
 # people1 = ["Tom", "Bob", "Alice"]
-# people2 = people1.copy()    # копируем элементы из people1 в people2
+# people2 = people1.copy()    # копируем элементы из people1 в people2 встроенным методом
+# people3 = list(people1)    # копируем элементы из people1 в people3 вызывая конструктор
+# people4 = people1[:]    # копируем элементы из people1 в people4 slice нарезкой
+
+
 # people2.append("Sam")   # добавляем элемент ТОЛЬКО во второй список
 # # people1 и people2 указывают на разные списки
 # print(people1)   # ["Tom", "Bob", "Alice"]
 # print(people2)   # ["Tom", "Bob", "Alice", "Sam"]
 
-'''Соединение списков +'''
+'''Соединение списков + (__add__)'''
 
 # people1 = ["Tom", "Bob", "Alice"]
 # people2 = ["Tom", "Sam", "Tim", "Bill"]
 # people3 = people1 + people2
 # print(people3)   # ["Tom", "Bob", "Alice", "Tom", "Sam", "Tim", "Bill"]
+# people4 = people1.__add__(people2)
+# print(people4)   # ["Tom", "Bob", "Alice", "Tom", "Sam", "Tim", "Bill"]
 
 '''Списки списков'''
 
@@ -461,6 +467,17 @@
 #     print(i)
 # for i in itertools.zip_longest(a,b,c, fillvalue=0):
 #     print(i)
+
+# a = [10, 20, 30, 40]
+# c = [1.1, 1.2, 1.3, 1.4]
+# ac = zip(a, c)
+# print(type(ac))
+
+# ac = list(ac)
+# print(type(ac))
+
+# print(ac)
+# [(10, 1.1), (20, 1.2), (30, 1.3), (40, 1.4)]
 
 # values = [1.34, 3.25, 2.99]
 # coefficient = [3, 2, 2]

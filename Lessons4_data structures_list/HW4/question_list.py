@@ -5,7 +5,7 @@
 languages = ["Java", "Python", "Javascript", "C++", "C#"]
 for lang in languages[:]:
     languages.remove(lang)
- 
+
 print(languages)
 
 Варианты ответов:
@@ -16,17 +16,17 @@ print(languages)
 
 - Будет сгенерировано исключение
 
- - Ничего из выше перечисленного
+- Ничего из выше перечисленного
 
 
 Вопрос 2
 Что выведет на консоль следующая программа:
 
-try: 
-    letters=["a","b"]
+try:
+    letters = ["a", "b"]
     print(letters[2])
 except (ValueError, IndexError):
-    print("Произошла ошибка")
+    print("Error")
 
 Варианты ответов:
 
@@ -36,8 +36,7 @@ Syntax Error
 
 2
 
-Произошла ошибка
-
+Error
 
 
 Вопрос 3
@@ -45,7 +44,8 @@ Syntax Error
 
 
 numbers = [1, 2, 3, 4]
-for idx, item in enumerate(numbers): del item
+for idx, item in enumerate(numbers):
+    del item
 print(numbers)
 
 Варианты ответов:
@@ -59,6 +59,7 @@ print(numbers)
 [1, 2, 3, 4]
 
 Ничего из выше перечисленного
+
 
 Вопрос 4
 
@@ -79,16 +80,19 @@ print(li)
 
 Программа сгенерирует ошибку
 
+
 Вопрос 5
 
 Что выведет на консоль следующая программа:
+
 
 def func(x, y=None):
     if y is None:
         y = [1]
     y.extend(x)
     return y
- 
+
+
 print(func([0], [2, 4, 5]))
 
 Варианты ответов:
@@ -131,7 +135,7 @@ False True
 
 
 numbers = [1, 2, 3, 4, 5]
-print(numbers[:4].pop( ))
+print(numbers[:4].pop())
 
 Варианты ответов:
 
@@ -212,7 +216,7 @@ print(li[1:][:2])
 
 
 li = [10, 20, 30, 40]
-li[1:3]=[50]
+li[1:3] = [50]
 print(li)
 
 Варианты ответов:
@@ -243,6 +247,3 @@ print(arr * 2)
 None
 
 Будет ошибка
-
-
-
