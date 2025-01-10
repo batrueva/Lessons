@@ -1,36 +1,37 @@
 # #Создание списка
 
-# numbers = [1, 2, 3, 4, 5]
-# people = ["Tom", "Sam", "Bob"]
+import itertools
+numbers = [1, 2, 3, 4, 5]
+people = ["Tom", "Sam", "Bob"]
 
-# numbers1 = []
-# numbers2 = list()
+numbers1 = []
+numbers2 = list()
 
-# objects = [1, 2.6, "Hello", True]
+objects = [1, 2.6, "Hello", True]
 
-# numbers = [1, 2, 3, 4, 5]
-# people = ["Tom", "Sam", "Bob"]
+numbers = [1, 2, 3, 4, 5]
+people = ["Tom", "Sam", "Bob"]
 
-# print(numbers)  # [1, 2, 3, 4, 5]
-# print(people)   # ["Tom", "Sam", "Bob"]
-
-
-# numbers1 = [1, 2, 3, 4, 5]
-# numbers2 = list(numbers1)
-# print(numbers2)  # [1, 2, 3, 4, 5]
-
-# letters = list("Hello")
-# print(letters)      # ['H', 'e', 'l', 'l', 'o']
+print(numbers)  # [1, 2, 3, 4, 5]
+print(people)   # ["Tom", "Sam", "Bob"]
 
 
-# numbers = [5] * 6   # 6 раз повторяем 5
-# print(numbers)      # [5, 5, 5, 5, 5, 5]
+numbers1 = [1, 2, 3, 4, 5]
+numbers2 = list(numbers1)
+print(numbers2)  # [1, 2, 3, 4, 5]
 
-# people = ["Tom"] * 3    # 3 раза повторяем "Tom"
-# print(people)           # ["Tom", "Tom", "Tom"]
+letters = list("Hello")
+print(letters)      # ['H', 'e', 'l', 'l', 'o']
 
-# students = ["Bob", "Sam"] * 2   # 2 раза повторяем "Bob", "Sam"
-# print(students)                 # ["Bob", "Sam", "Bob", "Sam"]
+
+numbers = [5] * 6   # 6 раз повторяем 5
+print(numbers)      # [5, 5, 5, 5, 5, 5]
+
+people = ["Tom"] * 3    # 3 раза повторяем "Tom"
+print(people)           # ["Tom", "Tom", "Tom"]
+
+students = ["Bob", "Sam"] * 2   # 2 раза повторяем "Bob", "Sam"
+print(students)                 # ["Bob", "Sam", "Bob", "Sam"]
 
 
 '''Обращение к элементам списка'''
@@ -49,46 +50,46 @@
 # print(people[-3])   # Tom
 
 
-# people = ["Tom", "Sam", "Bob"]
+people = ["Tom", "Sam", "Bob"]
 
-# people[1] = "Mike"  # изменение второго элемента
-# print(people[1])    # Mike
-# print(people)       # ["Tom", "Mike", "Bob"]
+people[1] = "Mike"  # изменение второго элемента
+print(people[1])    # Mike
+print(people)       # ["Tom", "Mike", "Bob"]
 
 '''Разложение списка'''
 
-# people = ["Tom", "Bob", "Sam"]
+people = ["Tom", "Bob", "Sam"]
 
-# tom, bob, sam = people
+tom, bob, sam = people
 
-# print(tom)      # Tom
-# print(bob)      # Bob
-# print(sam)      # Sam
+print(tom)      # Tom
+print(bob)      # Bob
+print(sam)      # Sam
 '''
 Перебор элементов
 '''
 
 
-# people = ["Tom", "Sam", "Bob"]
-# for person in people:
-#     print(person)
+people = ["Tom", "Sam", "Bob"]
+for person in people:
+    print(person)
 
-# people = ["Tom", "Sam", "Bob"]
-# i = 0
-# while i < len(people):  # len() получаем длину списка
-#     print(people[i])    # применяем индекс для получения элемента
-#     i += 1
+people = ["Tom", "Sam", "Bob"]
+i = 0
+while i < len(people):  # len() получаем длину списка
+    print(people[i])    # применяем индекс для получения элемента
+    i += 1
 
 '''
 Сравнение списков
 '''
 
-# numbers1 = [1, 2, 3, 4, 5]
-# numbers2 = list([1, 2, 3, 4, 5])
-# if numbers1 == numbers2:
-#     print("numbers1 equal to numbers2")
-# else:
-#     print("numbers1 is not equal to numbers2")
+numbers1 = [1, 2, 3, 4, 5]
+numbers2 = list([1, 2, 3, 5, 4])
+if numbers1 == numbers2:
+    print("numbers1 equal to numbers2")
+else:
+    print("numbers1 is not equal to numbers2")
 
 
 '''
@@ -96,25 +97,25 @@
     list[start:end:step]
 '''
 
-# people = ["Tom", "Bob", "Alice", "Sam", "Tim", "Bill"]
+people = ["Tom", "Bob", "Alice", "Sam", "Tim", "Bill"]
 
-# slice_people1 = people[:3]   # с 0 по 3
-# print(slice_people1)   # ["Tom", "Bob", "Alice"]
+slice_people1 = people[:3]   # с 0 по 3
+print(slice_people1)   # ["Tom", "Bob", "Alice"]
 
-# slice_people2 = people[1:3]   # с 1 по 3
-# print(slice_people2)   # ["Bob", "Alice"]
+slice_people2 = people[1:3]   # с 1 по 3
+print(slice_people2)   # ["Bob", "Alice"]
 
-# slice_people3 = people[1:6:2]   # с 1 по 6 с шагом 2
-# print(slice_people3)   # ["Bob", "Sam", "Bill"]
+slice_people3 = people[1:6:2]   # с 1 по 6 с шагом 2
+print(slice_people3)   # ["Bob", "Sam", "Bill"]
 
 
-# people = ["Tom", "Bob", "Alice", "Sam", "Tim", "Bill"]
+people = ["Tom", "Bob", "Alice", "Sam", "Tim", "Bill"]
 
-# slice_people1 = people[:-1]   # с предпоследнего по нулевой
-# print(slice_people1)   # ["Tom", "Bob", "Alice", "Sam", "Tim"]
+slice_people1 = people[:-1]   # с предпоследнего по нулевой
+print(slice_people1)   # ["Tom", "Bob", "Alice", "Sam", "Tim"]
 
-# slice_people2 = people[-3:-1]   # с третьего с конца по предпоследний
-# print(slice_people2)   # [ "Sam", "Tim"]
+slice_people2 = people[-3:-1]   # с третьего с конца по предпоследний
+print(slice_people2)   # [ "Sam", "Tim"]
 
 
 '''Методы и функции по работе со списками
@@ -246,16 +247,16 @@
 
 '''
 
-# numbers = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+numbers = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
 
 
-# def condition(number): return number > 1
+def condition(number): return number > 1
 
 
-#  result = filter(condition, numbers)
+result = filter(condition, numbers)
 
-# for n in result:
-#     print(n, end=" ")      # 2 3 4 5
+for n in result:
+    print(n, end=" ")      # 2 3 4 5
 
 '''через люмбда-выражение'''
 
@@ -267,35 +268,35 @@
 #     print(n, end=" ")      # 2 3 4 5
 
 
-# class Person:
-#     def __init__(self, name, age):
-#         self.name = name
-#         self.age = age
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
 
-# people = [Person("Tom", 38), Person("Kate", 31), Person("Bob", 42),
-#           Person("Alice", 34),  Person("Sam", 25)]
+people = [Person("Tom", 38), Person("Kate", 31), Person("Bob", 42),
+          Person("Alice", 34),  Person("Sam", 25)]
 
 # # фильтрация элементов, у которых age > 33
-# view = filter(lambda p: p.age > 33, people)
+view = filter(lambda p: p.age > 33, people)
 
-# for person in view:
-#     print(f"Name: {person.name} Age: {person.age}")
+for person in view:
+    print(f"Name: {person.name} Age: {person.age}")
 
 '''Проекция списка
     map(fun, iter)
 
 '''
-# numbers = [1, 2, 3, 4, 5]
+numbers = [1, 2, 3, 4, 5]
 
 
-# def square(number): return number * number
+def square(number): return number * number
 
 
-# result = map(square, numbers)
+result = map(square, numbers)
 
-# for n in result:
-#     print(n, end=" ")      # 1 4 9 16 25
+for n in result:
+    print(n, end=" ")      # 1 4 9 16 25
 
 
 # numbers = [1, 2, 3, 4, 5]
@@ -351,41 +352,41 @@
 
 '''Соединение списков + (__add__)'''
 
-# people1 = ["Tom", "Bob", "Alice"]
-# people2 = ["Tom", "Sam", "Tim", "Bill"]
-# people3 = people1 + people2
-# print(people3)   # ["Tom", "Bob", "Alice", "Tom", "Sam", "Tim", "Bill"]
-# people4 = people1.__add__(people2)
-# print(people4)   # ["Tom", "Bob", "Alice", "Tom", "Sam", "Tim", "Bill"]
+people1 = ["Tom", "Bob", "Alice"]
+people2 = ["Tom", "Sam", "Tim", "Bill"]
+people3 = people1 + people2
+print(people3)   # ["Tom", "Bob", "Alice", "Tom", "Sam", "Tim", "Bill"]
+people4 = people1.__add__(people2)
+print(people4)   # ["Tom", "Bob", "Alice", "Tom", "Sam", "Tim", "Bill"]
 
 '''Списки списков'''
 
-# people = [
-#     ["Tom", 29],
-#     ["Alice", 33],
-#     ["Bob", 27]
-# ]
+people = [
+    ["Tom", 29],
+    ["Alice", 33],
+    ["Bob", 27]
+]
 
-# print(people[0])         # ["Tom", 29]
-# print(people[0][0])      # Tom
-# print(people[0][1])      # 29
+print(people[0])         # ["Tom", 29]
+print(people[0][0])      # Tom
+print(people[0][1])      # 29
 
 # изменение  вложенных списков
 
-# people = [
-#     ["Tom", 29],
-#     ["Alice", 33],
-#     ["Bob", 27]
-# ]
+people = [
+    ["Tom", 29],
+    ["Alice", 33],
+    ["Bob", 27]
+]
 
 # # создание вложенного списка
-# person = list()
-# person.append("Bill")
-# person.append(41)
-# # добавление вложенного списка
-# people.append(person)
+person = list()
+person.append("Bill")
+person.append(41)
+# добавление вложенного списка
+people.append(person)
 
-# print(people[-1])         # ["Bill", 41]
+print(people[-1])         # ["Bill", 41]
 
 # # добавление во вложенный список
 # people[-1].append("+79876543210")
@@ -405,25 +406,25 @@
 
 # перебор вложенных списков
 
-# people = [
-#     ["Tom", 29],
-#     ["Alice", 33],
-#     ["Bob", 27]
-# ]
+people = [
+    ["Tom", 29],
+    ["Alice", 33],
+    ["Bob", 27]
+]
 
-# for person in people:
-#     for item in person:
-#         print(item, end=" | ")
+for person in people:
+    for item in person:
+        print(item, end=" | ")
 
 '''Списки и алгоритмы
 пример - факториал числа'''
 
 
-# def fact(n):
-#     return [1, 0][n > 1] or fact(n-1) * n
+def fact(n):
+    return [1, 0][n > 1] or fact(n-1) * n
 
 
-# print(fact(4))
+print(fact(4))
 
 '''
 Пошаговое выполнение:
@@ -451,42 +452,41 @@
 Функция zip()
 '''
 
-# a = [10, 20, 30, 40]
-# b = ['a', 'b', 'c', 'd', 'e']
-# for i, j in zip(a, b):
-#     print(i, j)
+a = [10, 20, 30, 40]
+b = ['a', 'b', 'c', 'd', 'e']
+for i, j in zip(a, b):
+    print(i, j)
 
-# for i in zip(a, b):
-#     print(i, type(i))
+for i in zip(a, b):
+    print(i, type(i))
 
-# import itertools
-# a = [10, 20, 30, 40]
-# b = ['a', 'b', 'c', 'd', 'e']
-# c = [1.1, 1.2]
+a = [10, 20, 30, 40]
+b = ['a', 'b', 'c', 'd', 'e']
+c = [1.1, 1.2]
 # for i in itertools.zip_longest(a, b, c):
 #     print(i)
-# for i in itertools.zip_longest(a,b,c, fillvalue=0):
-#     print(i)
+for i in itertools.zip_longest(a, b, c, fillvalue=0):
+    print(i)
 
-# a = [10, 20, 30, 40]
-# c = [1.1, 1.2, 1.3, 1.4]
-# ac = zip(a, c)
-# print(type(ac))
+a = [10, 20, 30, 40]
+c = [1.1, 1.2, 1.3, 1.4]
+ac = zip(a, c)
+print(type(ac))
 
-# ac = list(ac)
-# print(type(ac))
+ac = list(ac)
+print(type(ac))
 
-# print(ac)
+print(ac)
 # [(10, 1.1), (20, 1.2), (30, 1.3), (40, 1.4)]
 
-# values = [1.34, 3.25, 2.99]
-# coefficient = [3, 2, 2]
-# for i, j in zip(values, coefficient):
-#     print(i*j)
+values = [1.34, 3.25, 2.99]
+coefficient = [3, 2, 2]
+for i, j in zip(values, coefficient):
+    print(i*j)
 
 
-# a = []
-# b = []
-# for i, j in zip(range(10,20), range(1,10)):
-#     a.append(i)
-#     b.append(j)
+a = []
+b = []
+for i, j in zip(range(10, 20), range(1, 10)):
+    a.append(i)
+    b.append(j)

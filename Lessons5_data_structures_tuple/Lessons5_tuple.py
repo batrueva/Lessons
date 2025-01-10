@@ -2,17 +2,17 @@
 Создание кортежа
 '''
 
-# tom = ("Tom", 23)
-# print(tom)     # ("Tom", 23)
+tom = ("Tom", 23)
+print(tom)     # ("Tom", 23)
 
-# tom = "Tom", 23
-# print(tom)     # ("Tom", 23)
+tom = "Tom", 23
+print(tom)     # ("Tom", 23)
 
-# tom = ("Tom",)
+tom = ("Tom",)
 
-# data = ["Tom", 37, "Google"]
-# tom = tuple(data)
-# print(tom)      # ("Tom", 37, "Google")
+data = ["Tom", 37, "Google"]
+tom = tuple(data)
+print(tom)      # ("Tom", 37, "Google")
 
 
 # tom = ("Tom", 37, "Google")
@@ -32,25 +32,25 @@
 '''
 # tom[1] = "Tim" # Error
 
-# x = ("Tom", 37, "Google", "software developer")
-# y = list(x)
-# y[1] = 50
-# x = tuple(y)
+x = ("Tom", 37, "Google", "software developer")
+y = list(x)
+y[1] = 50
+x = tuple(y)
 
 # print(x)
 
-# x = ("Tom", 37, "Google", "software developer")
-# y = list(x)
-# y.append(50)
-# x = tuple(y)
+x = ("Tom", 37, "Google", "software developer")
+y = list(x)
+y.append(50)
+x = tuple(y)
 
 # print(x)
 
-# thistuple = ("Tom", 37, "Google", "software developer")
-# y = (50,)
-# thistuple += y
+thistuple = ("Tom", 37, "Google", "software developer")
+y = (50,)
+thistuple += y
 
-# print(thistuple)
+print(thistuple)
 
 
 '''
@@ -63,59 +63,63 @@
 # print(position)     # software developer
 # print(company)     # Google
 
-# my_tuple = ("Tom", 37, "Google", "software developer")
+my_tuple = ("Tom", 37, "Google", "software developer")
 
-# (Name, Age, *Who) = my_tuple
+(Name, Age, *Who) = my_tuple
 
-# print(Name)
-# print(Age)
-# print(Who)
+print(Name)
+print(Age)
+print(Who)
 
-# my_tuple = ("Tom", 37, "Google", "software developer")
+my_tuple = ("Tom", 37, "Google", "software developer")
 
-# (Name, *Age, Who) = my_tuple
+(Name, *Age, Who) = my_tuple
 
-# print(Name)
-# print(Age)
-# print(Who)
+print(Name)
+print(Age)
+print(Who)
 
 '''
 Получение подкортежей
 '''
-# tom = ("Tom", 37, "Google", "software developer")
+tom = ("Tom", 37, "Google", "software developer")
 
-# # получем подкортеж с 1 по 3 элемента (не включая)
-# print(tom[1:3])     # (37, "Google")
+# получем подкортеж с 1 по 3 элемента (не включая)
+print(tom[1:3])     # (37, "Google")
 
-# # получем подкортеж с 0 по 3 элемента (не включая)
-# print(tom[:3])     # ("Tom", 37, "Google")
+# получем подкортеж с 0 по 3 элемента (не включая)
+print(tom[:3])     # ("Tom", 37, "Google")
 
-# # получем подкортеж с 1 по послдений элемент
-# print(tom[1:])     # (37, "Google", "software developer")
+# получем подкортеж с 1 по послдений элемент
+print(type(tom[1:]))     # (37, "Google", "software developer")
 
 
 '''
 Кортеж как параметр и результат функций
 '''
 
-# def get_user():
-#     name = "Tom"
-#     age = 22
-#     company = "Google"
-#     return name, age, company
+
+def get_user():
+    name = "Tom"
+    age = 22
+    company = "Google"
+    return name, age, company
 
 
-# user = get_user()
-# print(user)     # ("Tom", 37, "Google")
+user = get_user()
+print(user)     # ("Tom", 37, "Google")
+print(type(user))
 
-# def print_person(name, age, company):
-#     print(f"Name: {name}  Age: {age}  Company: {company}")
 
-# tom = ("Tom", 22)
-# print_person(*tom, "Microsoft")     # Name: Tom  Age: 22  Company: Microsoft
+def print_person(name, age, company):
+    print(f"Name: {name}  Age: {age}  Company: {company}")
 
-# bob = ("Bob", 41, "Apple")
-# print_person(*bob)      # Name: Bob  Age: 41  Company: Apple
+
+tom = ("Tom", 22)
+print_person(*tom, "Microsoft")     # Name: Tom  Age: 22  Company: Microsoft
+
+bob = ("Bob", 41, "Apple")
+print_person(*bob)      # Name: Bob  Age: 41  Company: Apple
 
 '''
 Перебор кортежей
@@ -152,15 +156,15 @@ max() — показывает элемент кортежа с максимал
 len() — показывает количество элементов кортежа.
 '''
 
-# tom = (11, 22, 33)
-# print(tom.count(22))
+tom = (11, 22, 33)
+print(tom.count(22))
 
-# print(tom.index(22))
+print(tom.index(22))
 
-# print(sum(tom))
+print(sum(tom))
 
-# print(min(tom))
+print(min(tom))
 
-# print(max(tom))
+print(max(tom))
 
-# print(len(tom))
+print(len(tom))
