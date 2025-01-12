@@ -449,7 +449,7 @@ print(fact(4))
 '''
 
 '''
-Функция zip()
+Функция zip() слияние нескольких списков
 '''
 
 a = [10, 20, 30, 40]
@@ -490,3 +490,16 @@ b = []
 for i, j in zip(range(10, 20), range(1, 10)):
     a.append(i)
     b.append(j)
+
+fruits = ['apple', 'banana', 'lime']
+quantities = {100, 70, 50}
+availability = (True, False, False, True)
+fruit_qtys_zip = zip(fruits, quantities, availability)  # zip object
+print(type(fruit_qtys_zip))
+print(fruit_qtys_zip)
+
+print(list(fruit_qtys_zip))
+
+# zip object только 2 списка - ключ и значение, иначе при конвертации получим пустой словарь
+fruit_qtys_zip = zip(fruits, quantities)
+print(dict(fruit_qtys_zip))
