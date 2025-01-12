@@ -85,7 +85,7 @@ for c1 in "ab":
 
 '''
 Выход из цикла. break и continue
-
+Блок else НЕ будет выполняться, если цикл остановлен оператором break.
 '''
 # 1
 number = 0
@@ -102,3 +102,10 @@ while number < 5:
     if number == 3:    # если number = 3, переходим к новой итерации цикла
         continue
     print(f"number = {number}")
+
+'''
+Заявление о пропуске
+'''
+
+for x in [0, 1, 2]:
+    pass
