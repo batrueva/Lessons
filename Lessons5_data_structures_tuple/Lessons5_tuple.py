@@ -125,16 +125,16 @@ print_person(*bob)      # Name: Bob  Age: 41  Company: Apple
 Перебор кортежей
 '''
 
-# tom = ("Tom", 22, "Google")
-# for item in tom:
-#     print(item)
+tom = ("Tom", 22, "Google")
+for item in tom:
+    print(item)
 
-# tom = ("Tom", 22, "Google")
+tom = ("Tom", 22, "Google")
 
-# i = 0
-# while i < len(tom):
-#     print(tom[i])
-#     i += 1
+i = 0
+while i < len(tom):
+    print(tom[i])
+    i += 1
 
 '''Проверка наличия значения'''
 
