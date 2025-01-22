@@ -2,7 +2,11 @@
 def имя_функции ([параметры]):
     инструкции
 '''
-#
+# Тело функции  может быть пустой
+
+
+def say_hello():
+    pass
 
 
 def say_hello():
@@ -334,6 +338,20 @@ operation = select_operation(3)     # operation = multiply
 print(operation(10, 6))             # 60
 
 
+def do_operation(a, b, operation):
+    result = operation(a, b)
+    print(result)
+
+
+def sum(a, b): return a + b
+# def subtract(a, b): return a - b
+def multiply(a, b): return a * b
+
+
+do_operation(5, 4, sum)
+do_operation(5, 4, multiply)
+
+
 '''
 Лямбда-выражения
 lambda [параметры] : инструкция
@@ -380,8 +398,11 @@ do_operation(5, 4, lambda a, b: a * b)  # result = 20
 
 #
 
+a = 10
+
 
 def select_operation(choice):
+    a = 20
     if choice == 1:
         return lambda a, b: a + b
     elif choice == 2:
