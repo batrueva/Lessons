@@ -5,6 +5,9 @@ def имя_функции ([параметры]):
 # Тело функции  может быть пустой
 
 
+from datetime import date
+
+
 def say_hello():
     pass
 
@@ -311,6 +314,30 @@ def multiply(a, b): return a * b
 do_operation(5, 4, sum)         # result = 9
 do_operation(5, 4, multiply)   # result = 20
 
+
+#
+
+
+def get_weekday():
+    return date.today().strftime('%A')
+
+
+def create_new_post(post, weekday=get_weekday()):
+    post_copy = post.copy()
+    post_copy['create_on_weekday'] = weekday
+    return post_copy
+
+
+initial_post = {
+    'id': 243,
+    'autor': 'Any_autor',
+}
+
+post_with_weekday = create_new_post(initial_post)
+
+print(post_with_weekday)
+
+
 '''
 Функция как результат функции
 '''
@@ -419,3 +446,33 @@ print(operation(10, 6))  # 4
 
 operation = select_operation(3)  # operation = multiply
 print(operation(10, 6))  # 60
+
+
+'''
+Описание функции
+'''
+
+
+def mult_by_factor(value, mult=1):
+    """Multiplies number by multiplicator"""
+    return value * mult
+
+
+mult_by_factor(5)
+
+'''
+Описание аргументов
+'''
+
+
+def mult_by_factor(value, mult=1):
+    """Multiplies number by multiplicator
+
+    Args:
+       value (Any) any value \n
+       mult (int)
+    """
+    return value * mult
+
+
+mult_by_factor(5)
