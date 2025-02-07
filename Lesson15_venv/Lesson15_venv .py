@@ -33,7 +33,36 @@ virtualenv --system-site-packages myenv
 my_venv\Scripts\deactivate
 ------------------------------------------------------------------------------------------
 poetry - инструмент для управления виртуальными средами
+https://python-poetry.org/docs/#installing-with-the-official-installer
+Копируем и выполняем в PowrShell:
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+
+poetry new my_project - создаем новый проект с виртуальной средой, создается файл pyproject.toml
+poetry init - инициализируем среду
+poetry add requerets - устанавливаем библиотеку
+poetry add requerets@2.28.2 - можно указать версию библиотеки для установки
+poetry add flask - устанавливаем библиотеку
+poetry remove flask - удаляем  библиотеку из окружения и из файла зависимостей
+poetry install - устанавливает бибилиотек из  файла зависимостей в проекте
+poetry shell - активировать среду
+poetry update - обновление библиотек из файла зависимостей
+poetry show - выводит список зависимостей
+poetry check - выполняет проверку
+
+poetry add --dev pytest - создать отдельную группу виртуальной среды
+
+
+
+
+
+
+
 ------------------------------------------------------------------------------------------
+Ручная компиляция байткода
+import py_compile
+ 
+py_compile.compile("user.py")   # передаем путь к скрипту
+
 Модуль compileall применяется для компиляции всех файлов Python по определенным путям.
 Например, скомпилируем все файлы в каталоге C:/python/files
 
