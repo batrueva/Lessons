@@ -175,7 +175,7 @@ print("Программа завершена")
 '''
 Файлы CSV
 '''
-
+# import csv
 FILENAME = "users.csv"
 
 users = [
@@ -188,16 +188,27 @@ with open(FILENAME, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerows(users)
 
-
+# import csv
+FILENAME = "users.csv"
 with open(FILENAME, "a", newline="") as file:
     user = ["Sam", 31]
     writer = csv.writer(file)
     writer.writerow(user)
+#
+# import csv
+FILENAME = "users.csv"
+
+with open(FILENAME, "r", newline="") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row[0], " - ", row[1])
+
 
 '''
 Работа со словарями
 '''
-
+#
+# import csv
 FILENAME = "users2.csv"
 
 users = [
@@ -218,6 +229,9 @@ with open(FILENAME, "w", newline="") as file:
     # запись одной строки
     writer.writerow(user)
 
+# import csv
+
+FILENAME = "users2.csv"
 with open(FILENAME, "r", newline="") as file:
     reader = csv.DictReader(file)
     for row in reader:
@@ -226,8 +240,9 @@ with open(FILENAME, "r", newline="") as file:
 '''
 Бинарные файлы
 '''
-FILENAME = "forest.png"             # файл для чтения
-NEWFILENAME = "forest_new.png"      # файл для записи
+# import csv
+FILENAME = "Screenshot_2.jpg"             # файл для чтения
+NEWFILENAME = "Screenshot_2_new.jpg"      # файл для записи
 
 image_data = []     # список для хранения считанных данных
 
@@ -239,11 +254,12 @@ with open(FILENAME, "rb") as file:
 with open(NEWFILENAME, "wb") as file:
     file.write(image_data)
 
-print(f"Файл {FILENAME} скопирован в {NEWFILENAME}")
+print(f"File {FILENAME} was copy in {NEWFILENAME}")
 
 '''
 Модуль pickle
 '''
+# import pickle
 
 FILENAME = "user.dat"
 
@@ -257,10 +273,10 @@ with open(FILENAME, "wb") as file:
 with open(FILENAME, "rb") as file:
     name = pickle.load(file)
     age = pickle.load(file)
-    print("Имя:", name, "\tВозраст:", age)
+    print("Name:", name, "Age:", age)
 
 #
-
+# import pickle
 FILENAME = "users.dat"
 
 users = [
@@ -275,19 +291,20 @@ with open(FILENAME, "wb") as file:
 
 with open(FILENAME, "rb") as file:
     users_from_file = pickle.load(file)
+    print(type(users_from_file))
     for user in users_from_file:
-        print("Имя:", user[0], "\tВозраст:",
-              user[1], "\tЖенат/замужем:", user[2])
+        print("NAME:", user[0], "AGE:",
+              user[1], "\tIS MARRIED:", user[2])
 
 '''
 Модуль shelve
 
 open(путь_к_файлу[, flag="c"[, protocol=None[, writeback=False]]])
 '''
-#
+# import shelve
 d = shelve.open(filename)
 d.close()
-#
+# import shelve
 
 FILENAME = "states2"
 with shelve.open(FILENAME) as states:
@@ -303,7 +320,9 @@ with shelve.open(FILENAME) as states:
 '''
 Чтение данных   
 '''
-#
+# import shelve
+
+FILENAME = "states2"
 with shelve.open(FILENAME) as states:
     key = "Brussels"
     if key in states:
@@ -317,7 +336,9 @@ with shelve.open(FILENAME) as states:
     for key in states:
         print(key, " - ", states[key])
 
-#
+# import shelve
+
+FILENAME = "states2"
 with shelve.open(FILENAME) as states:
 
     for city in states.keys():
@@ -335,18 +356,19 @@ with shelve.open(FILENAME) as states:
 Обновление данных
 
 '''
-
+# import shelve
 FILENAME = "states2"
 with shelve.open(FILENAME) as states:
     states["London"] = "Great Britain"
     states["Paris"] = "France"
     states["Berlin"] = "Germany"
     states["Madrid"] = "Spain"
-
+# import shelve
+FILENAME = "states2"
 with shelve.open(FILENAME) as states:
 
-    states["London"] = "United Kingdom"
-    states["Brussels"] = "Belgium"
+    # states["London"] = "United Kingdom"
+    # states["Brussels"] = "Belgium"
     for key in states:
         print(key, " - ", states[key])
 
@@ -355,6 +377,8 @@ with shelve.open(FILENAME) as states:
 
 '''
 #
+# import shelve
+FILENAME = "states2"
 with shelve.open(FILENAME) as states:
 
     state = states.pop("London", "NotFound")
@@ -365,7 +389,8 @@ with shelve.open(FILENAME) as states:
     del states["Madrid"]    # удаляем объект с ключом Madrid
 
 
-#
+# import shelve
+FILENAME = "states2"
 with shelve.open(FILENAME) as states:
 
     states.clear()

@@ -12,39 +12,47 @@ remove(): удаляет файл
 
 # Создание и удаление папки
 
-
+# import os
 # путь относительно текущего скрипта
+# os.mkdir("F://Обучение  колледж/Lessons python 2024/Lessons/Lesson17_os_zip/hello")
+from datetime import datetime
+from datetime import time
+from datetime import date
+import datetime
+from zipfile import ZipFile
+from io import BytesIO
+import os
 os.mkdir("hello")
 # абсолютный путь
-os.mkdir("c://somedir")
-os.mkdir("c://somedir/hello")
+os.mkdir("f://somedir")
+os.mkdir("f://somedir/hello")
 
 
 # путь относительно текущего скрипта
 os.rmdir("hello")
 # абсолютный путь
-os.rmdir("c://somedir/hello")
+os.rmdir("f://somedir/hello")
 
 # Переименование файла
 
-os.rename("C://SomeDir/somefile.txt", "C://SomeDir/hello.txt")
+os.rename("f://SomeDir/somefile.txt", "f://SomeDir/hello.txt")
 
 # Удаление файла
 
-os.remove("C://SomeDir/hello.txt")
+os.remove("f://SomeDir/hello.txt")
 
 # Существование файла
-
-filename = input("Введите путь к файлу: ")
+filename = input("enter the path to the file: ")
 if os.path.exists(filename):
-    print("Указанный файл существует")
+    print("The specified file exists")
 else:
-    print("Файл не существует")
+    print("The file does not exist")
 
 '''
 Пример
 Программа подсчета слов
 '''
+# import os
 
 
 def get_words(filename):
@@ -89,6 +97,8 @@ if __name__ == "__main__":
 
 
 '''
+https://docs.python.org/3/library/zipfile.html
+https://docs-python.ru/standart-library/modul-zipfile-python/obekt-zipfile-modulja-zipfile/
 Запись и чтение архивных zip-файлов
 
 ZipFile(file, mode='r', compression=ZIP_STORED, allowZip64=True, compresslevel=None, *, strict_timestamps=True, metadata_encoding=None)
@@ -127,120 +137,161 @@ metadata_encoding: применяется для декодирования ме
 '''
 Создание и закрытие файла
 '''
-#
+# from zipfile import ZipFile
 
-myzip = ZipFile("metanit.zip", "w")
+myzip = ZipFile("myZipFile.zip", "w")
 
-#
+# from zipfile import ZipFile
 
-myzip = ZipFile("metanit.zip", "w")
+myzip = ZipFile("myZipFile.zip", "w")
 myzip.close()
 
-#
+# from zipfile import ZipFile
 
-with ZipFile("metanit.zip", "w") as myzip:
+with ZipFile("myZipFile.zip", "w") as myzip:
     pass
 
 '''
 Запись файлов в архив
 write(filename, arcname=None, compress_type=None, compresslevel=None)
 '''
-#
+# from zipfile import ZipFile
 
-with ZipFile("metanit.zip", "w") as myzip:
+with ZipFile("myZipFile.zip", "w") as myzip:
     myzip.write("hello.txt")
 
-#
+# from zipfile import ZipFile
 
-with ZipFile("metanit.zip", "a") as myzip:
+with ZipFile("myZipFile.zip", "a") as myzip:
     myzip.write("hello2.txt")
-    myzip.write("forest.jpg")
+    myzip.write("users2.csv")
 
-#
+# from zipfile import ZipFile, ZIP_DEFLATED
 
-with ZipFile("metanit.zip", "w", compression=ZIP_DEFLATED, compresslevel=3) as myzip:
-    myzip.write("hello.txt")
+with ZipFile("myZipFile1.zip", "w", compression=ZIP_DEFLATED, compresslevel=9) as myzip:
+    myzip.write("hello3.txt")
 
-#
+# from zipfile import ZipFile
 
-
-with ZipFile("metanit.zip", "a") as myzip:
-    myzip.write("hello.txt", "hello1.txt")
-    myzip.write("hello.txt", "hello2.txt")
-    myzip.write("hello.txt", "hello3.txt")
+with ZipFile("myZipFile.zip", "a") as myzip:
+    myzip.write("hello.txt", "hello4.txt")
+    myzip.write("hello.txt", "hello5.txt")
+    myzip.write("hello.txt", "hello6.txt")
 
 '''
 Получение информации о файлах в архиве
 '''
-#
+# from zipfile import ZipFile
 
-with ZipFile("metanit.zip", "a") as myzip:
+with ZipFile("myZipFile.zip", "a") as myzip:
     print(myzip.infolist())
 
 # infolist() - объект ZipInfo
-
-with ZipFile("metanit.zip", "r") as myzip:
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
     for item in myzip.infolist():
         print(f"File Name: {item.filename} Date: {
               item.date_time} Size: {item.file_size}")
 
 # is_dir()
-
-with ZipFile("metanit.zip", "r") as myzip:
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
     for item in myzip.infolist():
         if (item.is_dir()):
-            print(f"Папка: {item.filename}")
+            print(f"Folder: {item.filename}")
         else:
-            print(f"Файл: {item.filename}")
+            print(f"File: {item.filename}")
 
 #  namelist()
-
-with ZipFile("metanit.zip", "r") as myzip:
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
     for item in myzip.namelist():
         print(item)
 
 #  getinfo() - объект ZipInfo
 
-
-with ZipFile("metanit.zip", "r") as myzip:
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
     try:
-        hello_file = myzip.getinfo("hello.txt")
+        hello_file = myzip.getinfo("hello2.txt")
         print(hello_file.file_size)
+        # print(dir(hello_file))
     except KeyError:
-        print("Указанный файл отсутствует")
+        print("File not found")
+
+'''
+setpassword(): устанавливает пароль для zip-файла
+'''
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
+    myzip.setpassword(b'123')
+
+'''
+printdir(): выводит на консоль содержимое архива
+'''
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
+    myzip.printdir()
+
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
+    print(myzip.testzip())
 
 '''
 Извлечение файлов из архива
 extractall(path=None, members=None, pwd=None)
 '''
-
-with ZipFile("metanit.zip", "r") as myzip:
-    myzip.extractall()
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
+    # myzip.extractall()
     # Извлечение в определенную папку
-    # myzip.extractall(path="metanit")
-    # извлекаем файлы  "hello.txt", "forest.jpg" в папку "metanit2"
-    # myzip.extractall(path="metanit2", members=["hello.txt", "forest.jpg"])
+    myzip.extractall(path="myZipFile2")
+    # извлекаем файлы  "hello.txt", "hello2.txt" в папку "myZipFile2"
+    myzip.extractall(path="myZipFile2", members=["hello.txt", "hello2.txt"])
     # Извлечение одного файла
-    # myzip.extract("hello.txt")
+    myzip.extract("hello.txt")
 
 '''
 Считывание файла
 '''
-
-with ZipFile("metanit.zip", "r") as myzip:
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "r") as myzip:
     content = myzip.read("hello5.txt")
     print(content)
 '''
 Открытие файла
-open(name, mode='r', pwd=None, *, force_zip64=False)
+open(name, mode='r', pwd='', *, force_zip64=False)
 '''
-
-with ZipFile("metanit.zip", "a") as myzip:
+# from zipfile import ZipFile
+with ZipFile("myZipFile.zip", "a") as myzip:
     # записываем в архив новый файл "hello5.txt"
-    with myzip.open("hello5.txt", "w") as hello_file:
+    with myzip.open("hello7.txt", "w") as hello_file:
         encoded_str = bytes("Python...", "UTF-8")
         hello_file.write(encoded_str)
 
+
+# Класс ZipFileможет читать шифрование "pkzip 2.0", которое не считается очень сильным
+# (имеет известные уязвимости [pdf]).
+# Вероятно, это может быть причиной того, что на данный момент (начиная с Python 2.7.13 и 3.6)
+# их написание не реализовано в Python.
+# Более поздние версии, например, WinZip, могут использовать AES для шифрования содержимого сжатых файлов.
+# Python не может их читать.
+# Если вы хотите заархивировать несколько файлов в памяти с помощью пароля, используйте pyzipper.
+# import pyzipper
+# https://pypi.org/project/pyzipper/
+secret_password = b'lost art of keeping a secret'
+
+with pyzipper.AESZipFile('new_test.zip',
+                         'w',
+                         compression=pyzipper.ZIP_LZMA) as zf:
+    zf.setpassword(secret_password)
+    zf.setencryption(pyzipper.WZ_AES, nbits=128)
+    zf.writestr('test.txt', "What ever you do, don't tell anyone!")
+
+with pyzipper.AESZipFile('new_test.zip') as zf:
+    zf.setpassword(secret_password)
+    my_secrets = zf.read('test.txt')
+    print(my_secrets)
 '''
 Работа с датами и временем
 Модуль datetime
@@ -254,12 +305,10 @@ datetime
 Класс date
 date(year, month, day)
 '''
-
 yesterday = datetime.date(2017, 5, 2)
 print(yesterday)      # 2017-05-02
 
 #
-
 today = date.today()
 print(today)      # 2017-05-03
 print("{}.{}.{}".format(today.day, today.month, today.year))      # 2.5.2017
@@ -268,7 +317,6 @@ print("{}.{}.{}".format(today.day, today.month, today.year))      # 2.5.2017
 Класс time
 time([hour] [, min] [, sec] [, microsec])
 '''
-
 
 current_time = time()
 print(current_time)     # 00:00:00
@@ -285,7 +333,6 @@ print(current_time)     # 16:25:45
 datetime(year, month, day [, hour] [, min] [, sec] [, microsec])
 '''
 #
-
 deadline = datetime(2017, 5, 10)
 print(deadline)     # 2017-05-10 00:00:00
 
@@ -293,7 +340,6 @@ deadline = datetime(2017, 5, 10, 4, 30)
 print(deadline)     # 2017-05-10 04:30:00
 
 #
-
 now = datetime.now()
 print(now)     # 2017-05-03 11:18:56.239443
 
@@ -322,7 +368,6 @@ strptime(str, format)
 
 %S: секунда
 '''
-
 deadline = datetime.strptime("22/05/2017", "%d/%m/%Y")
 print(deadline)     # 2017-05-22 00:00:00
 
