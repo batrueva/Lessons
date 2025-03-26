@@ -1,0 +1,161 @@
+list = [1, 2, 3, 4, 5]
+for i in list:
+    print(i) #-> 1 2 3 4 5
+
+iterator = iter(list)
+print(iterator)
+l1 = next(iterator)
+print(l1)
+l2 = next(iterator)
+print(l2)
+l3 = next(iterator)
+print(l3)
+l4 = next(iterator)
+print(l4)
+l5= next(iterator)
+print(l5)
+# 
+from typing import List
+def get_pows(from_num: int, to_num: int) -> List[int]:
+    result = []
+    while from_num <=to_num
+        result.append(from_num ** 2)
+        from_num +=1
+    return  result   
+
+print(get_pows(1,10)) # без проблем
+get_pows(1,100000000) # в чем тут проблема?
+
+# 
+def get_pow(from_num: int, to_num: int) -> List[int]:
+    # result = []
+    while from_num <=to_num
+        # result.append(from_num ** 2)
+        yield from_num ** 2
+        from_num +=1
+    # return  result   
+
+g = get_pow(1, 10000000000) #создание генераторного объекта
+print(g)
+
+sq1 = next(g)
+sq2 = next(g)
+sq3 = next(g)
+
+print(f"Sq1 = {sq1}, sq2 = {sq2}, sq3 = {sq3}")
+
+
+# 
+def gen_number(from_num: int, to_num: int)
+    while from_num <=to_num
+        yield from_num
+        from_num +=1
+
+def gen_pow(from_num: int, to-num: int)        
+    for i in gen_number(from_num, to_num):
+        if i % 2 == 0:
+            yield i ** 2
+
+g = gen_pow(1, 10)      
+sq1 = next(g)
+sq2 = next(g)
+sq3 = next(g)
+
+print(f"Sq1 = {sq1}, sq2 = {sq2}, sq3 = {sq3}")    
+
+# 
+def gen_number(from_num: int, to_num: int)
+    while from_num <=to_num:
+        yield from_num
+        from_num +=1
+
+def gen_pow(from_num: int, to-num: int)        
+    for i in number_iterator:
+        if i % 2 == 0:
+            yield i ** 2
+
+g = gen_pow(gen_number(1, 10))     
+sq1 = next(g)
+sq2 = next(g)
+sq3 = next(g)
+
+print(f"Sq1 = {sq1}, sq2 = {sq2}, sq3 = {sq3}")  
+# 
+def gen_file_parts(path: str):
+    with open(path, 'rb') as f:
+        data = f.read()
+        pos = 0
+        while pos < len(data):
+        # data = f.read(1)
+            yield data[pos: pos + 8]
+            pos  +=8
+
+def gen_crypted(file_parts_iter):
+    for ch in file_parts_iter:
+        yield int.to_bytes(int.from_bytes(ch, byteorder = 'little')^0xfe, length = 8, byteorder = 'little')
+
+def gen_write_encrypted(result_path, encrypted_paths_iter):
+    with open(result_path, 'wb') as f:
+        for ch in encrypted_paths_iter:
+            f.write(ch)
+
+file_parts_gen =  gen_file_parts('P1000727.JPG')   
+crypt_gen = gen_crypted(file_parts_gen)  
+encrypted_write_gen = gen_write_encrypted('P1000727.JPG.enc', crypt_gen)
+print('done')
+
+# 
+from queue import Queue
+
+q1 = Queue()
+
+q1.put(1)
+q2.put(2)
+
+
+print(f"Item 1 from queue = {q1.get()}")
+print(f"Item 2 from queue = {q1.get()}")
+print(f"Item 3 from queue = {q1.get()}") #очередь заблокируется
+print(f"Item 4 from queue = {q1.get()}")
+# в линейной , не многопоточной схеме использовать бессмысленно
+
+# 
+from queue import Queue
+from threading import Thread
+
+numbers_queue = Queue()
+pows_queue = Queue()
+
+def gen_numbers(from_num: int, to_num: int, n_queue: Queue):
+    while from_num <=to_num:
+        print(f"T1: put {from_num} to queue")
+        n_queue.put(from_num)
+        from_num +=1
+
+
+def pow_numbers(num_q: Queue, pow_queue: Queue):
+    while True:
+        number = num_q.get()
+        if number % 2 == 0:
+            print(f"T2: put {from_num} **2 to queue")
+            pow_q.put(number ** 2)
+
+def print_result(res_q: Queue)            
+    while True:
+        print(f"T3: Result: {res_q.get()}")
+
+t1 =   Thread(target=gen_numbers, args=(1,10, numbers_queue))      
+t2 =   Thread(target=pow_numbers, args=(numbers_queue, pows_queue))  
+
+t1.start()
+t2.start()
+
+print_result(pows_queue)
+        
+
+
+
+
+
+
+
