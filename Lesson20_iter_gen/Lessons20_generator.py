@@ -1,6 +1,19 @@
 """
 Генераторы
 """
+# Пример квадраты всех натуральных чисел на отрезке в классическом варианте
+
+
+def get_pows(from_num: int, to_num: int) -> List[int]:
+    result = []
+    while from_num <= to_num:
+        result.append(from_num ** 2)
+        from_num += 1
+    return result
+
+
+print(get_pows(1, 10))  # без проблем
+print(get_pows(1, 100000000))  # в чем тут проблема?
 
 
 def get_pow(from_num: int, to_num: int):
@@ -22,6 +35,31 @@ sq3 = next(g)
 print(f"Sq1 = {sq1}, sq2 = {sq2}, sq3 = {sq3}")
 
 #
+'''
+Использование генератора дважды
+'''
+numbers = [1, 2, 3, 4, 5]
+
+squared_numbers = (number**2 for number in numbers)
+
+print(list(squared_numbers))
+print(list(squared_numbers))  # почему мы получаем пустой список?
+
+#
+'''
+ Проверка вхождения элемента в генератор
+'''
+numbers = [1, 2, 3, 4, 5]
+
+squared_numbers = (number**2 for number in numbers)
+print(squared_numbers)
+
+a = list(squared_numbers)
+print(a)  # True
+b = list(squared_numbers)
+print(b)  # почему мы получаем False во втором случае?
+#
+# Пример последовательности генераторов для возведения чисел из диапазона в степень
 
 
 def gen_number(from_num: int, to_num: int):
@@ -45,7 +83,7 @@ sq3 = next(g)
 
 print(f"Sq1 = {sq1}, sq2 = {sq2}, sq3 = {sq3}")
 
-#
+# Тот же пример, но во второй генератор передаем не диапазон . а объект генератор
 
 
 def gen_number(from_num: int, to_num: int):
@@ -70,7 +108,7 @@ sq3 = next(g)
 print(f"Sq1 = {sq1}, sq2 = {sq2}, sq3 = {sq3}")
 #
 
-# Пример шифрования через генераторы
+# Пример шифрования через генераторы бинарного файла
 
 
 def gen_file_parts(path: str):
